@@ -101,7 +101,8 @@ export default class VideoPlayer extends Component {
     this.wasPlayingBeforeSeek = props.autoplay;
     this.seekTouchStart = 0;
     this.seekProgressStart = 0;
-
+    
+    this.pause = this.pause.bind(this)
     this.onLayout = this.onLayout.bind(this);
     this.onStartPress = this.onStartPress.bind(this);
     this.onProgress = this.onProgress.bind(this);
@@ -182,6 +183,12 @@ export default class VideoPlayer extends Component {
 
     const { duration } = event;
     this.setState({ duration });
+  }
+  
+  pause() {
+   this.setState({
+    isPlaying: false
+   })
   }
 
   onPlayPress() {
